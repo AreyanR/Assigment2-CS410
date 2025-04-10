@@ -429,12 +429,12 @@
 -analyzer:"D:/Users/6000.0.44f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 -analyzer:"D:/Users/6000.0.44f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll"
 "Assets/Scripts/DirectionArrow.cs"
+"Assets/Scripts/GameEnding.cs"
+"Assets/Scripts/LightFlicker.cs"
+"Assets/Scripts/Observer.cs"
+"Assets/Scripts/PlayerMovement.cs"
+"Assets/Scripts/WaypointPatrol.cs"
 "Assets/TutorialInfo/Scripts/Readme.cs"
-"Assets/UnityTechnologies/3DBeginnerComplete/Scripts/GameEnding.cs"
-"Assets/UnityTechnologies/3DBeginnerComplete/Scripts/LightFlicker.cs"
-"Assets/UnityTechnologies/3DBeginnerComplete/Scripts/Observer.cs"
-"Assets/UnityTechnologies/3DBeginnerComplete/Scripts/PlayerMovement.cs"
-"Assets/UnityTechnologies/3DBeginnerComplete/Scripts/WaypointPatrol.cs"
 -langversion:9.0
 /deterministic
 /optimize+
