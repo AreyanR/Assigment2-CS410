@@ -15,6 +15,12 @@ public class PlayerMovement : MonoBehaviour
     Vector3 m_Movement;
     Quaternion m_Rotation = Quaternion.identity;
 
+    // Sprinting mechanics
+    public InputAction SprintAction;
+    public float sprintMultiplier = 2f;
+    public float walkMultiplier = 1f;
+    public ParticleSystem sprintDust;
+
     void Start ()
     {
         m_Animator = GetComponent<Animator> ();
@@ -22,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
         m_AudioSource = GetComponent<AudioSource> ();
         
         MoveAction.Enable();
+        SprintAction.Enable();
     }
 
     void FixedUpdate ()
@@ -51,13 +58,36 @@ public class PlayerMovement : MonoBehaviour
             m_AudioSource.Stop ();
         }
 
-        Vector3 desiredForward = Vector3.RotateTowards (transform.forward, m_Movement, turnSpeed * Time.deltaTime, 0f);
+        bool isSprinting = SprintAction.ReadValue<float>() > 0.1f;
+
+        float speedMultiplier = isSprinting ? sprintMultiplier : walkMultiplier;
+        Vector3 movementWithSpeed = m_Movement * speedMultiplier;
+
+        Vector3 desiredForward = Vector3.RotateTowards(transform.forward, m_Movement, turnSpeed * Time.deltaTime, 0f);
         m_Rotation = Quaternion.LookRotation (desiredForward);
+
+        if (isSprinting && isWalking)
+        {
+            if (!sprintDust.isPlaying)
+            {
+                sprintDust.Play();
+            }
+        }
+        else
+        {
+            if (sprintDust.isPlaying)
+            {
+                sprintDust.Stop();
+            }
+        }
     }
 
     void OnAnimatorMove ()
     {
-        m_Rigidbody.MovePosition (m_Rigidbody.position + m_Movement * m_Animator.deltaPosition.magnitude);
-        m_Rigidbody.MoveRotation (m_Rotation);
+        bool isSprinting = SprintAction.ReadValue<float>() > 0.1f;
+        float speedMultiplier = isSprinting ? sprintMultiplier : walkMultiplier;
+        m_Rigidbody.MovePosition (m_Rigidbody.position + m_Movement * m_Animator.deltaPosition.magnitude * speedMultiplier);
+        m_Rigidbody.MoveRotation(m_Rotation);
+
     }
 }
