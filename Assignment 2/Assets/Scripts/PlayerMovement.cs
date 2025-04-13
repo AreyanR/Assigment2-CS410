@@ -16,10 +16,11 @@ public class PlayerMovement : MonoBehaviour
     Quaternion m_Rotation = Quaternion.identity;
 
     // Sprinting mechanics
-    public InputAction SprintAction;
     public float sprintMultiplier = 2f;
     public float walkMultiplier = 1f;
     public ParticleSystem sprintDust;
+    private bool forceSprint = false;
+
 
     void Start ()
     {
@@ -28,7 +29,6 @@ public class PlayerMovement : MonoBehaviour
         m_AudioSource = GetComponent<AudioSource> ();
         
         MoveAction.Enable();
-        SprintAction.Enable();
     }
 
     void FixedUpdate ()
@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
         bool hasHorizontalInput = !Mathf.Approximately (horizontal, 0f);
         bool hasVerticalInput = !Mathf.Approximately (vertical, 0f);
         bool isWalking = hasHorizontalInput || hasVerticalInput;
-        m_Animator.SetBool ("IsWalking", isWalking);
+        m_Animator.SetBool("IsWalking", isWalking);
         
         if (isWalking)
         {
@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
             m_AudioSource.Stop ();
         }
 
-        bool isSprinting = SprintAction.ReadValue<float>() > 0.1f;
+        bool isSprinting = forceSprint;
 
         float speedMultiplier = isSprinting ? sprintMultiplier : walkMultiplier;
         Vector3 movementWithSpeed = m_Movement * speedMultiplier;
@@ -82,9 +82,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void ForceSprint(bool value)
+    {
+        forceSprint = value;
+    }
+
     void OnAnimatorMove ()
     {
-        bool isSprinting = SprintAction.ReadValue<float>() > 0.1f;
+        bool isSprinting = forceSprint;
         float speedMultiplier = isSprinting ? sprintMultiplier : walkMultiplier;
         m_Rigidbody.MovePosition (m_Rigidbody.position + m_Movement * m_Animator.deltaPosition.magnitude * speedMultiplier);
         m_Rigidbody.MoveRotation(m_Rotation);
