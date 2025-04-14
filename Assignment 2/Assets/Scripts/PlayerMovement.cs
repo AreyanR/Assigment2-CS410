@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 m_AudioSource.Play();
             }
-            // sound chnage for sprinting
+            // sound chnage for sprinting - raj
             float targetPitch = isSprinting ? 1.5f : 1.0f;
             if (Mathf.Abs(m_AudioSource.pitch - targetPitch) > 0.01f)
             {
@@ -74,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 desiredForward = Vector3.RotateTowards(transform.forward, m_Movement, turnSpeed * Time.deltaTime, 0f);
         m_Rotation = Quaternion.LookRotation (desiredForward);
-
+        // sprinting dust particle system - charlie
         if (isSprinting && isWalking)
         {
             if (!sprintDust.isPlaying)
