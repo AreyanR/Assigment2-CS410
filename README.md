@@ -8,4 +8,4 @@
 
 3. Particle Effects: When the character is on a rug object the player sprints and a particle system is triggered to trail the character - Charlie Flux
 
-4. 
+4. Sound Effects: When the Character is springing, the pitch for the walkign aniamtion is turned up to give the effect of running -

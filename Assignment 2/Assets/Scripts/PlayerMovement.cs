@@ -52,13 +52,17 @@ public class PlayerMovement : MonoBehaviour
             {
                 m_AudioSource.Play();
             }
+
+            float targetPitch = isSprinting ? 1.5f : 1.0f;
+            if (Mathf.Abs(m_AudioSource.pitch - targetPitch) > 0.01f)
+            {
+                m_AudioSource.pitch = targetPitch;
+            }
         }
         else
         {
-            m_AudioSource.Stop ();
+            m_AudioSource.Stop();
         }
-
-        bool isSprinting = forceSprint;
 
         float speedMultiplier = isSprinting ? sprintMultiplier : walkMultiplier;
         Vector3 movementWithSpeed = m_Movement * speedMultiplier;
