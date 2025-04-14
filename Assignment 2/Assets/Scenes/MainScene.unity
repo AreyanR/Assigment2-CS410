@@ -3480,6 +3480,71 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2361719697880697474, guid: e58a8494f35e17f45ba5bbffdfb92517,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2361719697880697474, guid: e58a8494f35e17f45ba5bbffdfb92517,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2361719697880697474, guid: e58a8494f35e17f45ba5bbffdfb92517,
+        type: 3}
+      propertyPath: ShapeModule.type
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2361719697880697474, guid: e58a8494f35e17f45ba5bbffdfb92517,
+        type: 3}
+      propertyPath: ShapeModule.angle
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2361719697880697474, guid: e58a8494f35e17f45ba5bbffdfb92517,
+        type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2361719697880697474, guid: e58a8494f35e17f45ba5bbffdfb92517,
+        type: 3}
+      propertyPath: InitialModule.rotation3D
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2361719697880697474, guid: e58a8494f35e17f45ba5bbffdfb92517,
+        type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2361719697880697474, guid: e58a8494f35e17f45ba5bbffdfb92517,
+        type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2361719697880697474, guid: e58a8494f35e17f45ba5bbffdfb92517,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2361719697880697474, guid: e58a8494f35e17f45ba5bbffdfb92517,
+        type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2361719697880697474, guid: e58a8494f35e17f45ba5bbffdfb92517,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2361719697880697474, guid: e58a8494f35e17f45ba5bbffdfb92517,
+        type: 3}
+      propertyPath: InitialModule.gravityModifier.scalar
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2483692895796954474, guid: e58a8494f35e17f45ba5bbffdfb92517,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3195594675768445815, guid: e58a8494f35e17f45ba5bbffdfb92517,
         type: 3}
       propertyPath: lengthInSec
