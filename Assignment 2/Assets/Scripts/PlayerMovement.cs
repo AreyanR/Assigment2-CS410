@@ -27,6 +27,9 @@ public class PlayerMovement : MonoBehaviour
         m_Animator = GetComponent<Animator> ();
         m_Rigidbody = GetComponent<Rigidbody> ();
         m_AudioSource = GetComponent<AudioSource> ();
+
+        if (sprintDust == null)
+        sprintDust = GetComponentInChildren<ParticleSystem>();
         
         MoveAction.Enable();
     }
@@ -45,6 +48,8 @@ public class PlayerMovement : MonoBehaviour
         bool hasVerticalInput = !Mathf.Approximately (vertical, 0f);
         bool isWalking = hasHorizontalInput || hasVerticalInput;
         m_Animator.SetBool("IsWalking", isWalking);
+        bool isSprinting = forceSprint;
+
         
         if (isWalking)
         {
@@ -52,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 m_AudioSource.Play();
             }
-
+            // sound chnage for sprinting
             float targetPitch = isSprinting ? 1.5f : 1.0f;
             if (Mathf.Abs(m_AudioSource.pitch - targetPitch) > 0.01f)
             {
